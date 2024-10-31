@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>COMPLAINTS</title>
+</head>
+
+<body>
+<div align="center">
+  <h1><strong>Notification</strong></h1>
+    <marquee>Your Notifications</marquee>
+</div>
+
+
+
+<form id="form1" name="form1" method="post" action="notification_search">
+SEARCH :<BR> FROM &nbsp;<input type="date" name="from_date" required/>&nbsp;
+TO &nbsp;<input type="date" name="to" required/>&nbsp; <input type="submit" value="submit"/><br>
+<BR><a href="staff_view_notification">Back</a><BR>
+{% csrf_token %}
+  <br><table width="717" border="1">
+    <tr>
+        <td width="50">SI.NO</td>
+        <td width="224">NOTIFICATION</td>
+        <td width="100">DATE</td>
+    </tr>
+    {% for notification in notification_details %}
+        {% if notification.type == "STAFF" %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>
+                {% if notification.notification %}
+                    {{ notification.notification }}&nbsp;
+                {% else %}
+                    No Notification
+                {% endif %}
+            </td>
+            <td>{{ notification.notification_date }}&nbsp;</td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+</table>
+
+</form>
+</body>
+</html>

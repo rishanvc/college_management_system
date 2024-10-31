@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Manage Staffs</title>
+</head>
+
+<body>
+<div align="center">
+    <p><strong><h2>STAFF DETAILS</h2></strong></p>
+</div>
+<form id="form1" name="form1" method="post" action="staff_search_filter">
+{% csrf_token %}
+    <a href="add_staff">Add new staff</a><br><br>
+    SEARCH : <input type="text" name="search" autocomplete="off" required/><input type="submit" value="submit"/><BR>
+<a href="admin_manage_staffs">Back</a>
+  <table width="717" border="1" style="margin-top: 20px">
+    <tr>
+      <td width="50">SI.NO</td>
+      <td width="224">Staff_Name</td>
+      <td width="139">Email</td>
+        <td width="139">Phone</td>
+      <td width="100">DOB</td>
+      <td width="119">Staff_Code</td>
+      <td width="45">Edit/Delete</td>
+    </tr>
+    <tr>
+        {% for details in staff_details %}
+        <td> {{ forloop.counter }} </td>
+      <td> {{ details.staff_name }}&nbsp;</td>
+      <td> {{ details.staff_email }}&nbsp;</td>
+      <td> {{ details.staff_phone }}&nbsp;</td>
+      <td> {{ details.staff_dob }}</td>
+      <td> {{ details.staff_code }}</td>
+      <td> <a href="edit_staff/{{ details.id }}">Edit/</a><a href="delete_staff/{{ details.id }}">Delete</a></td>
+    </tr>
+        {% endfor %}
+  </table>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="admin_add_staff">
+    {% csrf_token %}
+  <p align="center">ADD NEW STAFF</p>
+  <p>
+    <label>NAME :
+    <input type="text" name="name" />
+    </label>
+  </p>
+  <p>
+    <label>EMAIL :
+    <input type="email" name="email" />
+    </label>
+  </p>
+  <p>
+    <label>PHONE NUMBER:
+    <input type="number" name="phone" />
+    </label>
+  </p>
+  <p>
+    <label>DATE OF BIRTH : 
+    <input type="date" name="dob" />
+    </label>
+  </p>
+  <p>
+    <label>STAFF_CODE :
+    <input type="text" name="code" />
+    </label>
+  </p>
+  <p>
+    <label>user_name :
+    <input type="text" name="user_name" />
+    </label>
+  </p>
+  <p>
+    <label>password :
+    <input type="password" name="password" />
+    </label>
+  </p>
+  <p>
+    <label></label>
+  </p>
+  <p align="center"> 
+    <label>
+    <input type="submit" name="Submit" value="CREATE" />
+    </label>
+  </p>
+</form>
+
+</body>
+</html>

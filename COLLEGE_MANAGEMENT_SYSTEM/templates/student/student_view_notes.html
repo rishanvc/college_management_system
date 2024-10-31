@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>View Notes</title>
+</head>
+
+<body>
+<div align="center">
+  <h1><strong>View Notes</strong></h1>
+</div>
+<form id="form1" name="form1" method="post" action="/search_notes">
+    {% csrf_token %}
+<h3>YOUR COURSE : {{ student_profile_details.STUDENT_COURSE.course_name }}</h3>
+    <br>SELECT SUBJECT:
+    <select name="subject_id">
+        <option value="">--Select Subject--</option>
+        {% for subject in subject_list %}
+            <option value="{{ subject.id }}">{{ subject.subject_name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Submit" />
+    <br>
+    <a href="view_notes">Back</a>
+    <br>
+    <br>
+    <table width="717" border="1">
+        <tr>
+            <td width="50">SI.NO</td>
+            <td width="110">Uploaded By</td>
+            <td width="45">Notes</td>
+        </tr>
+        {% for note in notes_details %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ note.STAFF_ID.staff_name }}</td>
+            <td>{{ note.subject_note }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+
+</body>
+</html>

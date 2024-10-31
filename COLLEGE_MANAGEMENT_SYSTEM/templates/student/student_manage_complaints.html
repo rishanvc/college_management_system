@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>COMPLAINTS</title>
+</head>
+
+<body>
+<div align="center">
+  <p><strong>COMPLAINTS</strong></p>
+</div>
+
+
+
+<form id="form1" name="form1" method="post" action="/student_complaint_search">
+SEARCH :<br><br> FROM &nbsp;<input type="date" name="from_date" required/>&nbsp;
+TO &nbsp;<input type="date" name="to"/>&nbsp; <input type="submit" value="submit" required/>&nbsp;
+<a href="complaints_page">Back</a>
+<br><br><a href="add_new_complaint">ADD NEW COMPLAINT</a><br>
+{% csrf_token %}
+<br>
+<table width="717" border="1">
+    <tr>
+        <td width="50">SI.NO</td>
+        <td width="224">Complaint</td>
+        <td width="100">DATE</td>
+        <td width="200">REPLY</td>
+    </tr>
+    {% for complaint in complaint_details %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ complaint.complaint }}&nbsp;</td>
+        <td>{{ complaint.date }}&nbsp;</td>
+        <td>{{ complaint.reply }}&nbsp;</td>
+    </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>

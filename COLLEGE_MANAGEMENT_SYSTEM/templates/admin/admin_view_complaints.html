@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>COMPLAINTS</title>
+</head>
+
+<body>
+<div align="center">
+  <p><strong>COMPLAINTS</strong></p>
+</div>
+
+
+
+<form id="form1" name="form1" method="post" action="search_complaint">
+SEARCH :<BR><BR> FROM &nbsp;<input type="date" name="from_date" required/>&nbsp;
+TO &nbsp;<input type="date" name="to" required/>&nbsp; <input type="submit" value="submit"/>
+<BR><a href="view_complaints">Back</a><BR>
+{% csrf_token %}
+  <br><table width="717" border="1">
+    <tr>
+      <td width="50">SI.NO</td>
+      <td width="224">Student Name</td>
+      <td width="139">COMPLAINT</td>
+      <td width="100">DATE</td>
+      <td width="45">REPLY</td>
+    </tr>
+    <tr>
+        {% for complaint in student_complaints %}
+      <td> {{ forloop.counter }}</td>
+      <td> {{ complaint.STUDENT_ID.student_name }}&nbsp;</td> <!-- object_name.FOREIGN_KEY_NAME.foreign_key_field_name-->
+      <td> {{ complaint.complaint }}&nbsp;</td>
+      <td> {{ complaint.date }}&nbsp;</td>
+      <td>
+          {% if complaint.replied_status %}
+                {{ complaint.reply }}
+          {% else %}
+                <a href="reply_complaint/{{ complaint.id }}">REPLY</a>
+          {% endif %}
+
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+</html>

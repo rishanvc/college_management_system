@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>View Students</title>
+</head>
+
+<body>
+<div align="center">
+    <p><strong><h2>Student DETAILS</h2></strong></p>
+</div>
+<form id="form1" name="form1" method="post" action="staff_search_student">
+{% csrf_token %}
+    SEARCH : <input type="text" name="search" autocomplete="off" required/><input type="submit" value="submit"/><BR>
+<a href="staff_view_students">Back</a>
+  <table width="717" border="1" style="margin-top: 20px">
+    <tr>
+      <td width="50">SI.NO</td>
+      <td width="224">Student_Name</td>
+      <td width="139">Email</td>
+        <td width="139">Phone</td>
+        <td width="139">Course</td>
+        <td width="139">Semester</td>
+      <td width="100">DOB</td>
+      <td width="119">Admission Number</td>
+    </tr>
+    <tr>
+        {% for details in student_details %}
+        <td> {{ forloop.counter }} </td>
+      <td> {{ details.student_name }}&nbsp;</td>
+      <td> {{ details.student_email }}&nbsp;</td>
+      <td> {{ details.student_phone }}&nbsp;</td>
+      <td> {{ details.STUDENT_COURSE.course_name }}&nbsp;</td>
+      <td> {{ details.student_current_sem }}</td>
+      <td> {{ details.student_dob }}</td>
+      <td> {{ details.student_admission_number }}</td>
+
+</td>
+    </tr>
+        {% endfor %}
+  </table>
+</form>
+</body>
+
+</html>

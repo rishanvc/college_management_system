@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/admin_edit_staff">
+    {% csrf_token %}
+  <p align="center">EDIT STAFF DETAILS</p>
+    <p>
+    <input type="hidden" name="id" value="{{ details.id }}"/>
+  </p>
+  <p>    <input type="hidden" name="id" value="{{ details.id }}"/>
+
+    <label>NAME :
+    <input type="text" name="name" value="{{ details.staff_name }}"/>
+    </label>
+  </p>
+  <p>
+    <label>EMAIL :
+    <input type="email" name="email" value="{{ details.staff_email }}" />
+    </label>
+  </p>
+  <p>
+    <label>PHONE NUMBER:
+    <input type="number" name="phone" value="{{ details.staff_phone }}"/>
+    </label>
+  </p>
+  <p>
+    <label>DATE OF BIRTH :
+    <input type="date" name="dob" value="{{ details.staff_dob }}" />
+    </label>
+  </p>
+  <p>
+    <label>STAFF_CODE :
+    <input type="text" name="code" value="{{ details.staff_code }}" />
+    </label>
+  </p>
+  <p>
+    <label></label>
+  </p>
+  <p align="center">
+    <label>
+    <input type="submit" name="Submit" value="EDIT" />
+    </label>
+  </p>
+</form>
+
+</body>
+</html>

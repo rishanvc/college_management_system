@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Subjects Details</title>
+</head>
+
+<body>
+<div align="center">
+  <h1><strong>Subjects Details</strong></h1>
+</div>
+<a href="add_subject">Add New Subject</a>
+<form id="form1" name="form1" method="post" action="/subject_search">
+    {% csrf_token %}
+    <br>SELECT COURSE:
+    <select name="course_id">
+        <option value="">--Select Course--</option>
+        {% for course in courses_list %}
+            <option value="{{ course.id }}">{{ course.course_name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Submit" />
+    <br>
+    <a href="staff_manage_subjects">Back</a>
+    <br>
+    <br>
+    <table width="717" border="1">
+        <tr>
+            <td width="50">SI.NO</td>
+            <td width="110">Subject</td>
+            <td width="45">Edit</td>
+        </tr>
+        {% for subjects in subjects_details %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ subjects.subject_name }}</td>
+            <td>
+                <a href="edit_subject/{{ subjects.id }}">Edit</a> /
+                <a href="delete_subject/{{ subjects.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+
+</body>
+</html>

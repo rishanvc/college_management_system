@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="admin_add_notification">
+    {% csrf_token %}
+  <p align="center">ADD NEW NOTIFICATION</p>
+  <p>
+    <label>NOTIFICATION :
+        <textarea rows="10" cols="20" name="notification_note"></textarea>
+    </label>
+  </p><br>
+
+  <p>
+    <label>TYPE:
+        <select id = "notification_type" name="notification_type">
+            <option value="STUDENT">STUDENT</option>
+            <option value="STAFF">STAFF</option>
+        </select>
+    </label>
+  </p><br>
+  <p align="center"> 
+    <label>
+    <input type="submit" name="Submit" value="CREATE"/>
+    </label>
+  </p>
+</form>
+
+</body>
+</html>

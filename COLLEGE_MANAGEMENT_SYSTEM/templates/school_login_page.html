@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>School</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="login">
+    {% csrf_token %}
+        <center>
+    <h1>Welcome MESCE KUTTIPPURAM</h1><br>
+    <h4>LOGIN TO CONTINUE</h4><br>
+  <table width="337" border="1">
+    <tr>
+      <td width="172">USER_NAME</td>
+      <td width="149"><label>
+        <input type="text" name="user_name" autocomplete="off" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>PASSWORD</td>
+      <td><label>
+        <input type="password" name="password" />
+      </label></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <label>
+            <a href="create_account">Create Account</a>
+        </label>
+      </div></td>
+      <td><div align="center">
+        <label>
+        <input type="submit" name="login" value="Login" />
+        </label>
+      </div></td>
+    </tr>
+  </table>
+        </center>
+</form>
+</body>
+</html>

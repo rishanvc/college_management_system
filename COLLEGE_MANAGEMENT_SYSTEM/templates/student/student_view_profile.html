@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Your Profile</title>
+</head>
+
+<body><center><h1>YOUR PROFILE DETAILS</h1>
+<table width="364" border="1">
+  <tr>
+    <td width="148">NAME </td>
+    <td width="200">&nbsp;{{ student_profile_details.student_name }} </td>
+  </tr>
+  <tr>
+    <td>EMAIL</td>
+    <td>&nbsp;{{ student_profile_details.student_email  }} </td>
+  </tr>
+  <tr>
+    <td>PHONE</td>
+    <td>&nbsp;{{ student_profile_details.student_phone }} </td>
+  </tr>
+     <tr>
+    <td>COURSE</td>
+    <td>&nbsp;{{ student_profile_details.STUDENT_COURSE.course_name }} </td>
+  </tr>
+   <tr>
+    <td>DURATION</td>
+    <td>&nbsp;{{ student_profile_details.STUDENT_COURSE.course_duration }} Years </td>
+  </tr>
+    <tr>
+    <td>SEMESTER</td>
+    <td>&nbsp;{{ student_profile_details.student_current_sem }}  </td>
+  </tr>
+  <tr>
+    <td>DATE-OF-BIRTH</td>
+    <td> {{ student_profile_details.student_dob }} </td>
+  </tr>
+  <tr>
+    <td>ADMISSION NUMBER</td>
+    <td>&nbsp;{{ student_profile_details.student_admission_number }} </td>
+  </tr>
+    <tr>
+    <td>USER NAME</td>
+    <td>&nbsp;{{ student_profile_details.STUDENT_LOGIN.user_name  }} </td>
+  </tr>
+</table></center>
+
+
+
+</body>
+</html>
